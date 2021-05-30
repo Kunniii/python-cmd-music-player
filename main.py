@@ -22,35 +22,34 @@ def showPlaylist(musicList, current):
     global alphabet
     system('clear')
     # Show play list
-    print('''
-+ ----------------------------------------------------------------- +
-|                              Playlist                             |
-+ ----------+-------+---------------------------------------------- +
-|  Playing  |  No.  |  Name                                         |
-+ ----------+-------+---------------------------------------------- +''')
+    print('\t+ ----------------------------------------------------------------- +')
+    print('\t|                              Playlist                             |')
+    print('\t+ ----------+-------+---------------------------------------------- +')
+    print('\t|  Playing  |  No.  |  Name                                         |')
+    print('\t+ ----------+-------+---------------------------------------------- +')
     # Show what song is playing
     for i in musicList:
         if musicList[i] == current:
-            n = f"|  >>>>>>>  |  {i+1}" + " "*(5-len(f'{i+1}')) + f"|  {musicList[i]}"
+            n = f"\t|  >>>>>>>  |  {i+1}" + " "*(5-len(f'{i+1}')) + f"|  {musicList[i]}"
         else:
-            n = f"|           |  {i+1}" + " "*(5-len(f'{i+1}')) + f"|  {musicList[i]}"
-        space = " "*(66-len(n))
+            n = f"\t|           |  {i+1}" + " "*(5-len(f'{i+1}')) + f"|  {musicList[i]}"
+        space = " "*(67-len(n))
         print(n, space, "|")
     # Show play mode
-    print('+','-'*65,'+')
+    print('\t+ ----------+-------+---------------------------------------------- +')
     isShuffle = ' Shuffle: ' + ('yes' if shuffle else 'no ')
     isAlpha   = 'Alphabet: ' + ('yes' if alphabet else 'no')
     mode = isShuffle + '        ' + isAlpha
-    print('|', mode,' '*(64-len(mode)),'|')
+    print('\t|', mode,' '*(64-len(mode)),'|')
 
-    print('+','-'*65,'+')
-    print('|',f' {"Now playing:   " + current}',' '*(62-len("Now playing:  " + current)),'|')
-    print('+','-'*65,'+') 
+    print('\t+','-'*65,'+')
+    print('\t|',f' {"Now playing:   " + current}',' '*(62-len("Now playing:  " + current)),'|')
+    print('\t+','-'*65,'+') 
 
 def usage():
     print('Play music in command lines')
     print('-h       Help')
-    print('-d       stirng    : Directory, where you want to load and play your music')
+    print('-d       string    : Directory, where you want to load and play your music')
     print('-s       bool(1|0) : Shuffle your list')
     print('-a       bool(1|0) : Play in alphabet')
 
@@ -112,23 +111,3 @@ else:
         playsound(f'{musicPath}/{musicList[i]}')
 
 print("Played till the end of playlist!")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
